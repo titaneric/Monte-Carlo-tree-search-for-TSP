@@ -67,3 +67,8 @@ CPP_SRC := $(shell find ./ -name "*.cpp")
 
 
 include ./inc3.Makefile
+
+.PHONY: clean
+clean:
+	rm code/TSP.o test
+

@@ -1,7 +1,9 @@
 #include "include/TSP_IO.h"
 #include "include/TSP_Basic_Functions.h"
 #include "include/TSP_Init.h"
-#include "include/TSP_2Opt.h"
+// #include "include/TSP_2Opt.h"
+#include "include/TSP_SA.h"
+
 #include "include/TSP_MCTS.h"
 #include "include/TSP_Markov_Decision.h"
 
@@ -116,7 +118,8 @@ bool Solve_Instances_In_Batch()
 			
   	for(int i=Index_In_Batch*Inst_Num_Per_Batch;i<(Index_In_Batch+1)*Inst_Num_Per_Batch && i<Total_Instance_Num;i++)	   
 		Solve_One_Instance(i);	  
-        
+	// int i =Index_In_Batch*Inst_Num_Per_Batch;
+	// Solve_One_Instance(i);
   	return true;  
 }
 

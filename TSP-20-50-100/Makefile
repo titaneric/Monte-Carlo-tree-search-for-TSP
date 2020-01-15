@@ -47,7 +47,7 @@ endif
 #动态库
 #DYNAMIC_LINK_DIR = -lopencv_core -lopencv_video -lopencv_objdetect -lopencv_imgproc -lopencv_features2d -lopencv_flann -lopencv_highgui -lopencv_ml #-lopencv_contrib -lopencv_legacy -lopencv_nonfree -lopencv_ts
 
-#OPENCV_LIBS = libopencv_calib3d libopencv_imgcodecs libopencv_imgproc libopencv_video libopencv_videoio libopencv_flann libopencv_core libopencv_highgui 
+#OPENC	V_LIBS = libopencv_calib3d libopencv_imgcodecs libopencv_imgproc libopencv_video libopencv_videoio libopencv_flann libopencv_core libopencv_highgui 
 #OPENCV_LIBS = -lopencv_calib3d -lopencv_features2d -lopencv_video -lopencv_imgcodecs -lopencv_imgproc -lopencv_objdetect -lopencv_videoio -lopencv_flann -lopencv_highgui   -lopencv_photo -lopencv_shape  -lopencv_ml -lopencv_stitching -lopencv_superres -lopencv_videostab -lopencv_core -lopenblas -lncnn 
 
 
@@ -67,3 +67,8 @@ CPP_SRC := $(shell find ./ -name "*.cpp")
 
 
 include ./inc3.Makefile
+
+.PHONY: clean
+clean:
+	rm code/TSP.o test
+

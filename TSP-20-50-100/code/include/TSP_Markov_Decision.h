@@ -9,14 +9,18 @@ Distance_Type Markov_Decision_Process()
 {
 	MCTS_Init();                      // Initialize MCTS parameters
 	Generate_Initial_Solution();      // State initialization of MDP
-	Local_Search_by_2Opt_Move();	  // 2-opt based local search within small neighborhood	
+	// Local_Search_by_2Opt_Move();	  // 2-opt based local search within small neighborhood	
+	Local_Search_by_SA_Move();	  // 2-opt based local search within small neighborhood	
+
 	MCTS();		                      // Tageted sampling via MCTS within enlarged neighborhood
 
 	// Repeat the following process until termination
 	while(((double)clock()-Current_Instance_Begin_Time) /CLOCKS_PER_SEC<Param_T*Virtual_City_Num)
 	{
 		Jump_To_Random_State();		
-		Local_Search_by_2Opt_Move();		
+		// Local_Search_by_2Opt_Move();		
+		Local_Search_by_SA_Move();		
+
 		MCTS();
 	}
 	

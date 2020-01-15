@@ -23,7 +23,7 @@ AS := $(CROSS)as
 STRIP := $(CROSS)strip
 LINKTOOL = $(CROSS)g++
 
-#ÊÇ·ñdebugÄ£¿é
+#ï¿½Ç·ï¿½debugÄ£ï¿½ï¿½
 ifeq "$(IS_DEBUG)" "1"
 	CFLAGS += -g
 	SOCFLAGS += -g
@@ -39,7 +39,7 @@ SOCPPFLAGS += $(CPPFLAGS)
 
 STACFLAGS = ar cr
 
-#Á´½Ó¿ÉÖ´ÐÐÎÄ¼þµÄÊ±ºòÓÃµ½
+#ï¿½ï¿½ï¿½Ó¿ï¿½Ö´ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ãµï¿½
 LDFLAGS += -lpthread -lm -ldl
 
 SRC := $(strip $(SRC))
@@ -77,7 +77,7 @@ subtarget:
 		$(MAKE) -C $$i; \
 	done
 
-#¶¯Ì¬¿â±àÒë
+#ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½
 ifeq "$(TARGET_TYPE)" "SHARED_LIBRARY"
 $(TARGET):$(OBJ)  $(OBJ_C) $(OBJ_CPP)
 	$(LINKTOOL) $(SOCPPFLAGS) -o $@ $^  $(DEP_LIB_DIR) $(LIBS) $(OPENCV_LIBS)  ${OTHER_LIBS} $(LDFLAGS)
@@ -96,7 +96,7 @@ endif
 	@echo
 endif
 
-#¾²Ì¬¿â±àÒë
+#ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½
 ifeq "$(TARGET_TYPE)" "STATIC_LIBRARY"
 $(TARGET):$(OBJ)  $(OBJ_C) $(OBJ_CPP)
 	$(STACFLAGS) -o $@ $^ $(LIBS) 
@@ -107,7 +107,7 @@ $(TARGET):$(OBJ)  $(OBJ_C) $(OBJ_CPP)
 	@echo
 endif
 
-#Éú³ÉÖ÷Æ¬¿ÉÖ´ÐÐ³ÌÐò$(LIBS)
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½Ö´ï¿½Ð³ï¿½ï¿½ï¿½$(LIBS)
 ifeq "$(TARGET_TYPE)" "EXE_FILE"
 $(TARGET): $(OBJ)  $(OBJ_C) $(OBJ_CPP)
 	$(LINKTOOL) $(CPPFLAGS) -o $@ $^  $(DEP_LIB_DIR) $(LIBS) $(OPENCV_LIBS)   $(OPENCV_3RD_LIBS) ${OTHER_LIBS} $(LDFLAGS)
@@ -124,11 +124,4 @@ endif
 $(OBJ):%o:%c
 	$(CXX) $(CFLAGS) -c $< -o $@  $(INCLUDE_DIR)
 
-
-.PHONY: clean
-clean: 
-	rm $(OBJ) $(TARGET) \
-	@for i in $(SUBDIR); do \
-		$(MAKE) clean -C $$i; \
-	done	
 
